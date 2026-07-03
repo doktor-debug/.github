@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-label="Dr.Debug organization banner">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="45%" stop-color="#163b6f"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1280" height="360" rx="32" fill="url(#g)"/>
+  <g opacity=".18">
+    <circle cx="1020" cy="80" r="180" fill="#fff"/>
+    <circle cx="220" cy="290" r="120" fill="#fff"/>
+  </g>
+  <text x="70" y="135" fill="#ffffff" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="72" font-weight="800" filter="url(#glow)">Dr.Debug</text>
+  <text x="74" y="198" fill="#dbeafe" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="34" font-weight="500">Evidence-routed debugging memory, preservation, scanner, and repair workflows</text>
+  <text x="74" y="255" fill="#bbf7d0" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="26">Preserve now · Rehost later by review · Route knowledge by stammbaum · Validate before canonical</text>
+  <g transform="translate(1010 225)">
+    <rect x="0" y="0" width="190" height="64" rx="16" fill="rgba(255,255,255,.16)" stroke="rgba(255,255,255,.35)"/>
+    <text x="24" y="40" fill="#fff" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="24" font-weight="700">v2.2.2</text>
+  </g>
+</svg>

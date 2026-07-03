@@ -1,0 +1,13 @@
+{
+  "repo": "doktor-debug/.github",
+  "version": "2.2.2",
+  "purpose": "GitHub organization profile repository.",
+  "rendered_entry": "profile/README.md",
+  "internal_toc": [
+    "profile/.INDEX.md",
+    "profile/TOC1.md",
+    "profile/TOC2.md",
+    "profile/TOC3.md"
+  ],
+  "created_at": "2026-07-03"
+}
