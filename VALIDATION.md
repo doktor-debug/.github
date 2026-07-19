@@ -1,6 +1,12 @@
-# Validation v2.2.2
+# Validation v2.3.0
+
+Date: 2026-07-19
 
 - `profile/README.md` exists.
-- `profile/.INDEX.md`, `TOC1.md`, `TOC2.md`, and `TOC3.md` exist.
+- `AGENTS.md`, `profile/README.md`, `profile/TOC1.md`, `profile/TOC2.md`, and `profile/TOC3.md` exist.
 - No JavaScript or CSS is required for the organization profile because GitHub profile READMEs render Markdown/HTML only.
 - `assets/hero.svg` is local and referenced by relative path.
+- Active profile documents contain only the fourteen current organization repositories and the separate external control plane.
+- The fourteen `doktor-debug/*` repositories and external `n-e-o-w-u-l-f/myAPI` control plane are described separately.
+- Proposals and workflow artifacts route to their dedicated repositories.
+- Public text contains no secrets, private payloads, or non-public archive/storage locators.
