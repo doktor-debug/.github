@@ -2,7 +2,7 @@
   <img src="./assets/hero.svg" alt="Dr.Debug — evidence-routed debugging memory and preservation workflows" width="100%">
 </p>
 
-# Dr.Debug
+# Dr.Debug 2.4
 
 **Dr.Debug** is a GitHub organization for building an evidence-routed debugging knowledge base across devices, software stacks, files, manuals, scanners, preservation records, imports, proposals, canonical facts, and reusable workflows.
 
@@ -29,6 +29,9 @@
 
 The authenticated write control plane is the external private repository [`n-e-o-w-u-l-f/myAPI`](https://github.com/n-e-o-w-u-l-f/myAPI). It is not part of the `doktor-debug/*` content allowlist and does not replace repository-local instructions.
 
+Public GPT Actions call `/dr.debug/*`. `/myapi/*` is reserved for internal or
+loopback compatibility and is not advertised as a public route.
+
 ## Operating model
 
 ```mermaid
@@ -41,7 +44,8 @@ flowchart LR
   ME --> PUB["web and wiki"]
   SC --> AR["archive preservation"]
   AR --> ST["storage, integrity, and restore"]
-  CP["n-e-o-w-u-l-f/myAPI"] -. "authenticated write gates" .-> PR
+  GW["public /dr.debug gateway"] --> CP["n-e-o-w-u-l-f/myAPI"]
+  CP -. "authenticated write gates" .-> PR
   CP -. "authenticated write gates" .-> WF
   CP -. "authenticated write gates" .-> CA
 ```
@@ -71,6 +75,11 @@ flowchart LR
 3. **Preserve actively, distribute deliberately** — archive and storage preserve, verify, retain, restore, and deliver artifacts under an item-specific rights, provenance, integrity, safety, and review basis.
 4. **Propose before canonical** — allow knowledge growth without silently poisoning canonical memory.
 5. **Supersede false knowledge** — Dr.Debug may correct previous knowledge when better evidence proves it wrong or out of scope.
+
+External Kodi, ShellRPG, and spinnenhain repositories are separate,
+conditionally authorized project families. They do not expand the fourteen
+repository OWNER_MODE discovery group unless their exact slug and backend
+implementation state are verified.
 
 ---
 

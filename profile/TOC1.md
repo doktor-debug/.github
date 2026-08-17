@@ -12,7 +12,7 @@
 | `proposals` | Staged knowledge proposals | `proposals/PROPOSALS/` |
 | `import` | PDF/code/dependency extraction | `import/IMPORTS/` |
 | `canonical` | Reviewed canonical knowledge | `canonical/CANONICAL/` |
-| `workflows` | Batch/migration orchestration | `workflows/BATCHES/` |
+| `workflows` | Definitions, batches, migrations, validation, and rollback | `workflows/WORKFLOWS/` |
 | `storage` | Active large/offline artifact storage, integrity, retention, restore, and controlled delivery | `storage/STORAGE/` |
 | `research` | Source and claim review | `research/SOURCES/` |
 | `taxonomy` | Device/software/eclass stammbaum | `taxonomy/TAXONOMY/` |

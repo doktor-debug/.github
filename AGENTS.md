@@ -1,7 +1,7 @@
 # Dr.Debug-GPT instructions for `doktor-debug/.github`
 
-Version: 2.3.0
-Date: 2026-07-19
+Version: 2.4.0
+Date: 2026-07-28
 Status: ACTIVE
 Repository role: public organization profile and repository navigation
 
@@ -34,6 +34,12 @@ An authenticated `OWNER_MODE` session may discover, read, index, summarize, and 
 
 It may also describe the external private control plane `n-e-o-w-u-l-f/myAPI`. Read/describe authority does not imply write authority.
 
+The fourteen-repository discovery scope is intentionally separate from external
+project-family targets. Kodi, ShellRPG, and spinnenhain repositories may be
+worked on only when their exact GitHub slug is verified and the backend marks
+that exact repository as implemented and authorized. A policy-declared or
+pending alias is not operational access.
+
 Public descriptions and reports must redact secrets, credentials, private payloads, personal data, and non-public archive/storage locators. Do not expose a private object key, filesystem path, bucket name, signed URL, or equivalent delivery locator.
 
 ## Repository boundary
@@ -44,6 +50,10 @@ This repository may contain only the organization profile, repository map, publi
 - Create every workflow definition, plan, or template only in `doktor-debug/workflows`.
 - A thin repository-local GitHub Actions caller is allowed only when GitHub technically requires `.github/workflows/**`; the reusable workflow definition remains in `doktor-debug/workflows` whenever feasible.
 - Gate implementation and write enforcement belong to `n-e-o-w-u-l-f/myAPI`.
+
+The public GPT Action gateway uses `/dr.debug/*`. `/myapi/*` is an internal or
+loopback compatibility prefix and must not be documented as publicly reachable
+without a successful live probe.
 
 `doktor-debug/archive` and `doktor-debug/storage` are active preservation and delivery services. Archive records provenance, preservation state, hashes, and reviewed snapshots. Storage manages large/offline artifact placement, integrity, retention, restore, and controlled delivery. Distribution is decided per item from rights, provenance, integrity, safety, and review evidence; it is not globally allowed or denied merely because an upstream source is online or offline.
 
@@ -70,3 +80,5 @@ Before reporting success:
 4. Check Markdown links, Mermaid syntax, relative asset paths, and table consistency.
 5. Confirm proposal and workflow links point to their dedicated repositories.
 6. Run a secret/private-locator review and inspect the final diff.
+7. Confirm public API links use `/dr.debug/*` and do not claim public
+   `/myapi/*` reachability.

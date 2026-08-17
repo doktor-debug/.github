@@ -25,6 +25,14 @@
 - Distribution eligibility is evaluated per artifact from rights, provenance, integrity, safety, and review evidence.
 - Upstream online/offline state is evidence, not a blanket allow or deny rule.
 
+## Public action route
+
+- Public GPT Actions use `/dr.debug/*`.
+- `/myapi/*` is an internal or loopback compatibility prefix.
+- A policy-declared external repository is not write-enabled until its exact
+  slug, installation access, path policy, and backend implementation are
+  verified.
+
 ## Hard boundaries
 
 - No secrets.
