@@ -1,20 +1,24 @@
 {
   "repo": "doktor-debug/.github",
-  "version": "2.3.0",
-  "generated_at": "2026-07-19",
+  "version": "2.4.0",
+  "generated_at": "2026-08-27",
   "status": "active",
-  "role": "Organization profile, public navigation, and repository map",
+  "role": "Organization profile, public navigation, and current repository map",
   "agent_instructions": "AGENTS.md",
-  "inventory": {
-    "historical_sha256": "SHA256SUMS.txt",
-    "historical_filelists": "FILELISTS/",
-    "status": "regeneration_required_after_final_v2.3_commit",
-    "scope": "regenerate all non-ignored repository files after the final commit; do not present v2.2 hashes as current"
-  },
+  "repository_count": 16,
   "routing": {
-    "proposals": "doktor-debug/proposals",
-    "workflows": "doktor-debug/workflows",
-    "gates": "n-e-o-w-u-l-f/myAPI"
+    "agent_policy": "doktor-debug/.agents",
+    "project_api": "doktor-debug/.api",
+    "proposals": "doktor-debug/.proposals",
+    "workflows": "doktor-debug/.workflows",
+    "private_web_source": "doktor-debug/.web",
+    "public_pages_target": "doktor-debug/doktor-debug.github.io",
+    "shared_gateway": "n-e-o-w-u-l-f/myAPI"
+  },
+  "api_split": {
+    "project_namespace": "/doktor-debug/**",
+    "project_owner": "doktor-debug/.api",
+    "shared_gateway_owner": "n-e-o-w-u-l-f/myAPI"
   },
   "owner_mode": {
     "repository_describe": "read_only",
@@ -23,6 +27,13 @@
   "artifact_distribution": {
     "archive": "active",
     "storage": "active",
-    "decision": "item_specific"
+    "decision": "item_specific",
+    "public_release": "deliberate_sanitized_traceable"
+  },
+  "inventory": {
+    "historical_sha256": "SHA256SUMS.txt",
+    "historical_filelists": "FILELISTS/",
+    "status": "regeneration_required_after_v2.4_merge",
+    "scope": "regenerate non-ignored file inventory and hashes after the final v2.4 profile commit; do not present older hashes as current"
   }
 }
