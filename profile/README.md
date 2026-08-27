@@ -1,77 +1,82 @@
 <p align="center">
-  <img src="./assets/hero.svg" alt="Dr.Debug — evidence-routed debugging memory and preservation workflows" width="100%">
+  <img src="./assets/hero.svg" alt="Dr.Debug — evidence-routed software and hardware fault analysis and repair" width="100%">
 </p>
 
 # Dr.Debug
 
-**Dr.Debug** is a GitHub organization for building an evidence-routed debugging knowledge base across devices, software stacks, files, manuals, scanners, preservation records, imports, proposals, canonical facts, and reusable workflows.
+**Dr.Debug** is an evidence-routed software and hardware debugging system for fault intake, reproduction, isolation, root-cause analysis, mitigation, controlled repair, verification, regression prevention, preservation, and reusable diagnostic knowledge.
 
-> Preserve artifacts with provenance and integrity evidence. Distribute each item only under its recorded rights, safety, and review basis. Keep version, hardware, dependency, and evidence scope attached to every claim.
+> Preserve the difference between observation, hypothesis, verified root cause, workaround, repair, and verified repair. Scope every reusable claim to the relevant device, software, firmware, dependency, environment, version, and evidence.
 
-## Fast navigation
+## Repository map
 
 | Area | Repository | Purpose |
 |---|---|---|
-| Organization profile | [`doktor-debug/.github`](https://github.com/doktor-debug/.github) | Public organization overview, repository navigation, modes, and lifecycle entry points. |
-| Global agent instructions | [`doktor-debug/agents`](https://github.com/doktor-debug/agents) | Shared mode rules, routing, scanner routines, preservation rules, and response discipline. |
-| Textual debug memory | [`doktor-debug/memory`](https://github.com/doktor-debug/memory) | Accepted error explanations, device/software knowledge, source-backed diagnostics, and fact lifecycle. |
-| Visual/manual/media memory | [`doktor-debug/web`](https://github.com/doktor-debug/web) | GitHub Pages renderers, manuals, media metadata, HTML/CSS/JS, and visual knowledge. |
-| Standalone wiki | [`doktor-debug/wiki`](https://github.com/doktor-debug/wiki) | Human-readable documentation portal with TOC, architecture pages, and GitHub Pages output. |
-| Archive & preservation | [`doktor-debug/archive`](https://github.com/doktor-debug/archive) | Active provenance catalog, preservation manifests, hashes, reviewed snapshots, and distribution decisions. |
-| Scanner intake | [`doktor-debug/scanner`](https://github.com/doktor-debug/scanner) | Files uploaded for analysis, routing, triage, and later cleanup. |
-| Proposals | [`doktor-debug/proposals`](https://github.com/doktor-debug/proposals) | Mode-safe knowledge proposals and canonicalization requests. |
-| Imports | [`doktor-debug/import`](https://github.com/doktor-debug/import) | PDF/code/dependency/text extraction plans and import reports. |
-| Canonical facts | [`doktor-debug/canonical`](https://github.com/doktor-debug/canonical) | Reviewed canonical knowledge, superseded facts, conflicts, and lineage. |
-| Workflows | [`doktor-debug/workflows`](https://github.com/doktor-debug/workflows) | Batch, import, migration, validation, and rollback orchestration. |
-| Storage | [`doktor-debug/storage`](https://github.com/doktor-debug/storage) | Active large/offline artifact storage, integrity checks, retention, restore metadata, and controlled delivery. |
-| Research | [`doktor-debug/research`](https://github.com/doktor-debug/research) | Sources, claims, conflicts, rights review, and external evidence. |
-| Taxonomy | [`doktor-debug/taxonomy`](https://github.com/doktor-debug/taxonomy) | Device, software, ECLASS, dependency, and stammbaum classification. |
+| Organization profile | [`doktor-debug/.github`](https://github.com/doktor-debug/.github) | Public organization overview and repository navigation. |
+| Agent governance | [`doktor-debug/.agents`](https://github.com/doktor-debug/.agents) | Global Dr.Debug instructions, modes, diagnostic lifecycle, routing, and gates. |
+| Dr.Debug API namespace | [`doktor-debug/.api`](https://github.com/doktor-debug/.api) | Project-specific API contracts and behavior under `/doktor-debug/**`. |
+| Diagnostic memory | [`doktor-debug/.memory`](https://github.com/doktor-debug/.memory) | Accepted evidence-linked observations and textual diagnostic knowledge. |
+| Canonical knowledge | [`doktor-debug/.canonical`](https://github.com/doktor-debug/.canonical) | Reviewed root causes, facts, methods, conflicts, and supersede lineage. |
+| Research | [`doktor-debug/.research`](https://github.com/doktor-debug/.research) | Sources, evidence grading, contradictions, reproducibility, and rights context. |
+| Taxonomy | [`doktor-debug/.taxonomy`](https://github.com/doktor-debug/.taxonomy) | Stable device/software/dependency classification and relationships. |
+| Scanner | [`doktor-debug/.scanner`](https://github.com/doktor-debug/.scanner) | Untrusted artifact intake, inventory, risk assessment, and routing. |
+| Import staging | [`doktor-debug/.import`](https://github.com/doktor-debug/.import) | Controlled extraction/import staging with provenance preservation. |
+| Proposals | [`doktor-debug/.proposals`](https://github.com/doktor-debug/.proposals) | Unresolved corrections, repair candidates, and reviewable structural proposals. |
+| Workflows | [`doktor-debug/.workflows`](https://github.com/doktor-debug/.workflows) | Repair playbooks, validation sequences, migrations, automation, and rollback. |
+| Archive | [`doktor-debug/.archive`](https://github.com/doktor-debug/.archive) | Preservation catalog, provenance, hashes, snapshots, and distribution decisions. |
+| Storage | [`doktor-debug/.storage`](https://github.com/doktor-debug/.storage) | Large-artifact integrity, retention, restore, access, and delivery metadata. |
+| Private web source | [`doktor-debug/.web`](https://github.com/doktor-debug/.web) | Sanitized presentation/render source; never a second diagnostic truth. |
+| Wiki | [`doktor-debug/wiki`](https://github.com/doktor-debug/wiki) | Public human-readable architecture and diagnostic documentation. |
+| Pages release target | [`doktor-debug/doktor-debug.github.io`](https://github.com/doktor-debug/doktor-debug.github.io) | Deliberately generated/sanitized public Pages output; not canonical private source. |
 
-The authenticated write control plane is the external private repository [`n-e-o-w-u-l-f/myAPI`](https://github.com/n-e-o-w-u-l-f/myAPI). It is not part of the `doktor-debug/*` content allowlist and does not replace repository-local instructions.
+## API boundary
 
-## Operating model
+Dr.Debug uses two cooperating layers:
+
+- [`doktor-debug/.api`](https://github.com/doktor-debug/.api) owns Dr.Debug-specific routes and contracts under **`/doktor-debug/**`**.
+- [`n-e-o-w-u-l-f/myAPI`](https://github.com/n-e-o-w-u-l-f/myAPI) is the shared external gateway/control plane for **`/`**, shared health/system information, cross-project API discovery, shared authentication/owner resolution, audit, and dispatch.
+
+The project API must integrate with the shared gateway rather than duplicate it.
+
+## Diagnostic lifecycle
 
 ```mermaid
 flowchart LR
-  SC["scanner intake"] --> IM["import and extraction"]
-  IM --> PR["proposals"]
-  PR --> WF["workflows"]
-  WF --> CA["canonical review"]
-  CA --> ME["memory"]
-  ME --> PUB["web and wiki"]
-  SC --> AR["archive preservation"]
-  AR --> ST["storage, integrity, and restore"]
-  CP["n-e-o-w-u-l-f/myAPI"] -. "authenticated write gates" .-> PR
-  CP -. "authenticated write gates" .-> WF
-  CP -. "authenticated write gates" .-> CA
+  I["INTAKE"] --> T["TRIAGE"]
+  T --> R["REPRODUCE"]
+  R --> S["ISOLATE"]
+  S --> H["HYPOTHESIS"]
+  H --> C["ROOT CAUSE VERIFIED"]
+  C --> P["REPAIR PLAN"]
+  P --> A["APPLY"]
+  A --> V["VERIFY FIX"]
+  V --> G["REGRESSION CHECK"]
+  G --> K["CANONICALIZE / POSTMORTEM"]
 ```
 
-<details>
-<summary><strong>Mode summary</strong></summary>
+For an active incident, safe mitigation may precede complete root-cause analysis when needed to reduce impact. Mitigation remains distinct from a verified causal repair.
 
-| Mode | Main job | Write posture |
-|---|---|---|
-| `CUSTOMER_MODE` | Diagnose, collect evidence, and prepare routed artifacts. | Writes require the control-plane gate; proposals go only to `proposals`, workflow artifacts only to `workflows`. User assertions alone are not canonical truth. |
-| `ADMIN_MODE` | Operate scanner processing, imports, workflow staging, repository routing, and validated structured writes. | May write broader operational paths only after the external `myAPI` bearer-auth, repository, path, redaction, validation, and audit gates pass. |
-| `OWNER_MODE` | Discover, read, index, summarize, and describe all fourteen repositories plus the external control plane; perform final review and coordinated changes. | Read/describe is non-mutating. Every write remains separately gated by `myAPI` and requires owner identity, reason, validation, audit, and rollback for risky changes. |
+## Operating principles
 
-</details>
+1. **Evidence before certainty** — never promote a plausible hypothesis merely because it sounds convincing.
+2. **Exact scope before reuse** — version, device, dependency, environment, and date determine whether knowledge applies.
+3. **Reproduce and isolate** — distinguish causal evidence from correlation where practical.
+4. **Verify the original failure** — a successful command, restart, or health check alone does not prove a repair.
+5. **Preserve rollback and history** — keep failed attempts, conflicts, and supersede lineage when they remain diagnostically useful.
+6. **Preserve actively, distribute deliberately** — archive/storage decisions are item-specific and evidence-based.
+7. **Private source is not a public mirror** — dot-prefixed source/governance repositories are never copied wholesale into public release repositories.
+
+## Permission modes
+
+`CUSTOMER_MODE`, `ADMIN_MODE`, and `OWNER_MODE` describe authority. They do **not** describe evidence quality. A user observation can be decisive evidence; owner authority can still be wrong about root cause. Canonical promotion and successful-repair claims therefore remain evidence-gated.
 
 ## Documentation entry points
 
 - [TOC1 — Repositories](./TOC1.md)
 - [TOC2 — Modes and gates](./TOC2.md)
 - [TOC3 — Preservation and scanner lifecycle](./TOC3.md)
-- [Standalone wiki repository](https://github.com/doktor-debug/wiki)
-
-## Principles
-
-1. **Source before claim** — prefer official or technical evidence, but do not treat vendors as infallible.
-2. **Version before contradiction** — many “conflicts” are really device, firmware, dependency, runtime, or date differences.
-3. **Preserve actively, distribute deliberately** — archive and storage preserve, verify, retain, restore, and deliver artifacts under an item-specific rights, provenance, integrity, safety, and review basis.
-4. **Propose before canonical** — allow knowledge growth without silently poisoning canonical memory.
-5. **Supersede false knowledge** — Dr.Debug may correct previous knowledge when better evidence proves it wrong or out of scope.
+- [Standalone Wiki](https://github.com/doktor-debug/wiki)
 
 ---
 
-This repository is intended to be named **`doktor-debug/.github`**. GitHub renders `profile/README.md` on the public organization profile.
+GitHub renders this file from **`doktor-debug/.github/profile/README.md`** on the organization profile.
